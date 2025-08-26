@@ -14,7 +14,7 @@ const featuredStatues = [
     artist: "Classical Collection",
     price: 2499,
     originalPrice: 2999,
-    image: "/elegant-white-marble-venus-de-milo-statue.png",
+    image: "/serene-stone-buddha-statue-in-meditation-pose.png",
     material: "Marble",
     height: "180cm",
     isNew: true,
