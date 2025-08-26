@@ -171,7 +171,7 @@ function SliderBlock({
 }) {
   const [index, setIndex] = useState(0)
 
-  const next = () => setIndex((prev) => (prev + 1) % 1) // only one item for now
+  const next = () => setIndex((prev) => (prev + 1) % 1) // placeholder for multiple variations
   const prev = () => setIndex((prev) => (prev - 1 + 1) % 1)
 
   return (
@@ -234,7 +234,7 @@ function SliderBlock({
   )
 }
 
-export function StatueSlider3D() {
+export function StatueViewer3D() {
   const horse = { name: "Majestic Horse", price: "$3,499", description: "Bronze stallion in dynamic pose", color: "#8B7355" }
   const lion = { name: "Regal Lion", price: "$4,299", description: "Powerful lion with detailed mane", color: "#CD853F" }
   const woman = { name: "Elegant Woman", price: "$3,899", description: "Classical feminine grace in marble", color: "#F5F5DC" }
@@ -244,66 +244,6 @@ export function StatueSlider3D() {
       <SliderBlock statue={horse} type="horse" />
       <SliderBlock statue={lion} type="lion" />
       <SliderBlock statue={woman} type="woman" />
-    </div>
-  )
-}      </div>
-    </Html>
-  )
-}
-
-interface StatueViewer3DProps {
-  statueUrl?: string
-  className?: string
-}
-
-export function StatueViewer3D({ statueUrl = "/assets/3d/duck.glb", className = "" }: StatueViewer3DProps) {
-  const [isFullscreen, setIsFullscreen] = useState(false)
-
-  const resetCamera = () => {
-    // Reset camera position logic would go here
-    console.log("Resetting camera position")
-  }
-
-  return (
-    <div className={`relative bg-muted/20 rounded-lg overflow-hidden ${className}`}>
-      {/* 3D Canvas */}
-      <Canvas camera={{ position: [0, 2, 5], fov: 50 }} className="w-full h-full">
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Suspense fallback={<LoadingSpinner />}>
-          <StatueModel url={statueUrl} />
-          <ContactShadows position={[0, -1.5, 0]} opacity={0.4} scale={10} blur={2} far={4.5} />
-          <Environment preset="studio" />
-        </Suspense>
-        <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} minDistance={2} maxDistance={10} />
-      </Canvas>
-
-      {/* Controls Overlay */}
-      <div className="absolute top-4 right-4 flex flex-col gap-2">
-        <Button
-          size="icon"
-          variant="secondary"
-          className="rounded-full bg-background/80 backdrop-blur"
-          onClick={resetCamera}
-        >
-          <RotateCcw className="h-4 w-4" />
-        </Button>
-        <Button
-          size="icon"
-          variant="secondary"
-          className="rounded-full bg-background/80 backdrop-blur"
-          onClick={() => setIsFullscreen(!isFullscreen)}
-        >
-          <Maximize className="h-4 w-4" />
-        </Button>
-      </div>
-
-      {/* Instructions */}
-      <div className="absolute bottom-4 left-4 right-4">
-        <div className="bg-background/80 backdrop-blur rounded-lg p-3 text-sm text-muted-foreground">
-          <p className="text-center">Drag to rotate • Scroll to zoom • Right-click to pan</p>
-        </div>
-      </div>
     </div>
   )
 }
