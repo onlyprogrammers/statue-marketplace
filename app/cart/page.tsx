@@ -29,7 +29,7 @@ export default function CartPage() {
       name: "Venus de Milo",
       artist: "Classical Greek",
       price: 2499,
-      image: "/venus-de-milo-marble-statue.png",
+      image: "/serene-stone-buddha-statue-in-meditation-pose.png",
       quantity: 1,
       material: "Marble",
       size: "24 inches",
