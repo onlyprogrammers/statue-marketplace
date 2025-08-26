@@ -30,14 +30,14 @@ export default function ProfilePage() {
       date: "2024-01-15",
       status: "Delivered",
       total: 2499,
-      items: [{ name: "Venus de Milo", image: "/venus-de-milo-statue.png" }],
+      items: [{ name: "Venus de Milo", image: "/serene-stone-buddha-statue-in-meditation-pose.png" }],
     },
     {
       id: "ORD-002",
       date: "2024-01-10",
       status: "Shipped",
       total: 3299,
-      items: [{ name: "David Replica", image: "/david-statue-replica.png" }],
+      items: [{ name: "David Replica", image: "/serene-stone-buddha-statue-in-meditation-pose.png" }],
     },
   ]
 
